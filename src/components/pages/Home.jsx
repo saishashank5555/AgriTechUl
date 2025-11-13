@@ -14,11 +14,13 @@ import Brands from "../Brands/Brands";
 import OffersPage from "../Offers/OffersPage";
 import Footer from "../Footer/Footer";
 import TrustSection from "../Banner/TrustSection";
+import Navbar from "../Navbar";
 
 
 const Home = () => {
   return (
     <div>
+      <Navbar></Navbar>
       <HeroBannerSlider />
       {/* Add other sections below */}
       <CategoryGrid />
