@@ -28,6 +28,10 @@ import VendorOrders from "./components/Dashboard/VendorDashboard/VendorOrders/in
 import VendorProfile from "./components/Dashboard/VendorDashboard/VendorProfile";
 import VendorSettings from "./components/Dashboard/VendorDashboard/VendorSettings.jsx";
 import AdminLogin from "./components/Dashboard/AdminDashboard/AdminLogin.jsx";
+import AdminLayout from "./components/Dashboard/AdminDashboard/AdminLayout.jsx";
+import AdminDashboard from "./components/Dashboard/AdminDashboard/AdminDashboard.jsx";
+import Users from "./components/Dashboard/AdminDashboard/User/Users.jsx";
+import Vendors from "./components/Dashboard/AdminDashboard/Vendor/vendors.jsx";
 
 function App() {
   return (
@@ -81,11 +85,42 @@ function App() {
 
           <Route path="settings" element={<VendorSettings />} />
 
+        </Route>
+        
+        <Route path="/admin-login" element={<AdminLogin />} />
+
+        
+        {/* <Route path="/adminLogout" element={<AdminLogin />} /> */}
+
+        <Route path="/admin" element={<AdminLayout />}>
+
+          Default redirect
+          <Route index element={<Navigate to="dashboard" replace />} />
+
+          {/* Dashboard home */}
+          <Route path="dashboard" element={<AdminDashboard />} />
+
+          <Route path="users" element={<Users />} />
+          {/* Profile */}
+          <Route path="vendors" element={<Vendors />} />
+          
+
+          <Route path="about" element={<About />} />
+          
+          <Route path="services" element={<Services />} />
+
+          <Route path="contact" element={<Contactus />} />
+
+          <Route path="settings" element={<VendorSettings />} />    
+        <Route/>
 
 
+        
 
         </Route>
-        <Route path="/admin-login" element={<AdminLogin />} />
+
+
+
 
         {/* Fallback Route */}
         <Route path="*" element={<div style={{ padding: 40 }}>404 Not Found</div>} />

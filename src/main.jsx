@@ -6,7 +6,7 @@ import ScrollToTop from './components/ScrollToTop.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <BrowserRouter basename="/AgriTechUl">
+   <BrowserRouter basename="/AgriTechUl/">
       <ScrollToTop />
       <App />
     </BrowserRouter>
