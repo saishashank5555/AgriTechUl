@@ -1,5 +1,6 @@
-import Fertilizers from "./Fertilizers";
+import FertilizerDetailsPage from "./FertilizerDetailsPage";
+
 
 export default function FertilizersPage() {
-  return <Fertilizers />;
+  return <FertilizerDetailsPage />;
 }

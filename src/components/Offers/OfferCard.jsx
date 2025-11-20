@@ -9,6 +9,7 @@ const OfferCard = ({ item }) => {
   }[item.category];
 
   return (
+   
     <Link to={link} className="offer-card">
       <div className="offer-img-box">
         <img src={item.image} alt={item.name} />
@@ -46,7 +47,9 @@ const OfferCard = ({ item }) => {
         .offer-mrp { text-decoration:line-through;color:#888;font-size:13px; }
       `}</style>
     </Link>
+    
   );
+  
 };
 
 export default OfferCard;

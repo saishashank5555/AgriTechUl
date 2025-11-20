@@ -48,7 +48,7 @@ function App() {
 
         <Route path="/category/vegetable-seeds" element={<VegetableSeedsPage />} />
         <Route path="/seeds/:id" element={<SeedDetailsPage />} />
-        <Route path="/category/fertilizers" element={<FertilizersPage />} />
+        <Route path="/fertilizers/:id" element={<FertilizersPage />} />
         <Route path="/category/farm-machinery" element={<FarmMachineryPage />} />
 
         <Route path="/offers-today" element={<OffersPage />} />
@@ -115,7 +115,9 @@ function App() {
         <Route/>
 
 
-        
+
+
+
 
         </Route>
 

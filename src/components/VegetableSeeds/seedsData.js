@@ -1,7 +1,7 @@
 const seedsData = [
   {
     id: 1,
-    name: "Kaveri Hybrid Tomato Seeds",
+    name: "Hybrid Tomato Seeds",
     image: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=600&q=80",
     brand: "Kaveri Seeds",
     price: 199,

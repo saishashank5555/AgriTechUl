@@ -7,6 +7,8 @@ const FertilizersPreview = () => {
   const previewItems = fertilizersData.slice(0, 12); // Show first 12 fertilizers
 
   return (
+    <>
+    
     <div className="fert-preview-wrapper">
 
       <div className="fert-header-row">
@@ -80,6 +82,7 @@ const FertilizersPreview = () => {
         }
       `}</style>
     </div>
+    </>
   );
 };
 

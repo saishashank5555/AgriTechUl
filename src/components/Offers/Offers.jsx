@@ -12,6 +12,7 @@ const Offers = () => {
   items = items.filter((i) => i.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
+    <> 
     <div className="offers-page">
       <h2 className="offers-page-title">Today's Best Deals</h2>
 
@@ -48,6 +49,7 @@ const Offers = () => {
         }
       `}</style>
     </div>
+    </>
   );
 };
 

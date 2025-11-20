@@ -1,121 +1,92 @@
 import React from "react";
-import { Bell, PlusCircle, UserCircle2 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Bell, UserCircle, PlusCircle } from "lucide-react";
 
-export default function VendorNavbar({ onAddProduct }) {
-  const navigate = useNavigate();
-  const vendorName = "GreenGrow Traders";
-
+export default function VendorNavbar() {
   return (
-    <header className="vendor-navbar-inner">
-      <div className="nav-left">
+    <header className="vendor-navbar">
+      <div className="left">
         <h2>🌿 Vendor Dashboard</h2>
       </div>
 
-      <div className="nav-right">
-        <button
-          className="add-btn"
-          onClick={() => {
-            if (onAddProduct) onAddProduct();
-            else navigate("/vendor/products");
-          }}
-        >
-          <PlusCircle size={18} /> Add Product
+      <div className="right">
+        <button className="add-btn">
+          <PlusCircle size={18} />
+          Add Product
         </button>
 
-        <div className="icon-btn" title="Notifications">
+        <div className="icon-badge">
           <Bell size={20} />
           <span className="badge">3</span>
         </div>
 
-        <div className="vendor-profile">
-          <UserCircle2 size={28} />
-          <span className="name">{vendorName}</span>
+        <div className="profile">
+          <UserCircle size={26} />
+          GreenGrow Traders
         </div>
       </div>
 
       <style jsx="true">{`
-        .vendor-navbar-inner {
+        .vendor-navbar {
+          height: 70px;                           /* IMPORTANT */
+          background: white;
           display: flex;
+          align-items: center;
           justify-content: space-between;
-          align-items: center;
-          padding: 12px 24px;
-          background: #ffffff;
-          border-bottom: 1px solid #e5e7eb;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-          position: sticky;
+          padding: 0 20px;
+          position: fixed;
           top: 0;
-          z-index: 1000;
+          left: 0;
+          right: 0;
+          z-index: 5000;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.08);
         }
 
-        .nav-left h2 {
-          color: #1f5d09;
-          font-weight: 800;
-          font-size: 1.2rem;
-          margin: 0;
-        }
-
-        .nav-right {
+        .left h2 {
+          font-size: 20px;
+          font-weight: 700;
           display: flex;
           align-items: center;
-          gap: 16px;
+          gap: 5px;
+        }
+
+        .right {
+          display: flex;
+          align-items: center;
+          gap: 18px;
         }
 
         .add-btn {
+          background: #1f7a0a;
+          color: white;
+          padding: 8px 12px;
+          border-radius: 8px;
+          border: none;
           display: flex;
           align-items: center;
-          gap: 8px;
-          background: #2a7a0e;
-          color: white;
-          border: none;
-          border-radius: 8px;
-          padding: 8px 12px;
+          gap: 6px;
           font-weight: 600;
-          cursor: pointer;
-          transition: transform 0.15s ease, background 0.15s ease;
         }
 
-        .add-btn:hover {
-          transform: translateY(-2px);
-        }
-
-        .icon-btn {
+        .icon-badge {
           position: relative;
-          cursor: pointer;
-          color: #333;
         }
 
-        .icon-btn .badge {
+        .badge {
           position: absolute;
           top: -6px;
           right: -6px;
           background: red;
           color: white;
           font-size: 10px;
-          padding: 2px 6px;
-          border-radius: 999px;
+          padding: 2px 5px;
+          border-radius: 8px;
         }
 
-        .vendor-profile {
+        .profile {
           display: flex;
           align-items: center;
-          gap: 8px;
-          color: #2a7a0e;
+          gap: 6px;
           font-weight: 600;
-        }
-
-        .vendor-profile .name {
-          font-size: 0.95rem;
-        }
-
-        @media (max-width: 520px) {
-          .nav-right {
-            gap: 8px;
-          }
-          .add-btn {
-            padding: 6px 8px;
-            font-size: 0.9rem;
-          }
         }
       `}</style>
     </header>
