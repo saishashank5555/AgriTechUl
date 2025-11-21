@@ -32,7 +32,13 @@ import AdminLayout from "./components/Dashboard/AdminDashboard/AdminLayout.jsx";
 import AdminDashboard from "./components/Dashboard/AdminDashboard/AdminDashboard.jsx";
 import Users from "./components/Dashboard/AdminDashboard/User/Users.jsx";
 import Vendors from "./components/Dashboard/AdminDashboard/Vendor/vendors.jsx";
-
+import MachineryDetailsPage from "./components/FarmMachinery/MachineryDetailsPage.jsx";
+import Userdashboard from "./components/Dashboard/UserDashboard/Userdashboard.jsx";
+import Fertilizers from "./components/Fertilizers/Fertilizers.jsx";
+import CartPage from "./components/Dashboard/UserDashboard/navbarmodules/UserCartModules/CartPage.jsx";
+import UserOrders from "./components/Dashboard/UserDashboard/navbarmodules/UserOrdersModules/UserOrders.jsx";
+import TrackOrder from "./components/Dashboard/UserDashboard/navbarmodules/UserOrdersModules/TrackOrder.jsx";
+import WishlistPage from "./components/Dashboard/UserDashboard/navbarmodules/WishlistModules/wishlistPage.jsx";
 function App() {
   return (
     <>
@@ -49,9 +55,14 @@ function App() {
         <Route path="/category/vegetable-seeds" element={<VegetableSeedsPage />} />
         <Route path="/seeds/:id" element={<SeedDetailsPage />} />
         <Route path="/fertilizers/:id" element={<FertilizersPage />} />
+        <Route path="/category/fertilizers" element={<Fertilizers />} />
         <Route path="/category/farm-machinery" element={<FarmMachineryPage />} />
 
-        <Route path="/offers-today" element={<OffersPage />} />
+       <Route path="/machinery/:id" element={<MachineryDetailsPage />} />
+
+
+
+        <Route path="/category/offers-today" element={<OffersPage />} />
         <Route path="/best-selling" element={<BestSellingPage />} />
 
         {/* Vendor Auth */}
@@ -114,12 +125,21 @@ function App() {
           <Route path="settings" element={<VendorSettings />} />    
         <Route/>
 
-
-
-
-
-
         </Route>
+
+        {/*  User Dashboard Route */}
+        <Route path="/userdashboard" element={<Userdashboard />}>
+        </Route>
+
+        {/* User navbar Routings */}
+        <Route path="/cart" element={<CartPage />} />
+         <Route path="/orders" element={<UserOrders />} />
+         <Route path="/track-order/:orderId" element={<TrackOrder/>} /> 
+         <Route path="/wishlist" element={<WishlistPage/>} />  
+
+
+      
+
 
 
 

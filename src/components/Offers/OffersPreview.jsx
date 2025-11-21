@@ -11,7 +11,7 @@ const OffersPreview = () => {
 
       <div className="offers-head-row">
         <h2 className="offers-title">Today's Offers</h2>
-        <Link to="/offers-today" className="offers-more-btn">View More →</Link>
+        <Link to="/category/offers-today" className="offers-more-btn">View More →</Link>
       </div>
 
       <div className="offers-scroll">

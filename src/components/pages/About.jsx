@@ -1,4 +1,6 @@
 import React from "react";
+import Navebar from "../../components/Navbar";
+import Footer from "../Footer/Footer";
 
 const About = () => {
   const team = [
@@ -24,7 +26,12 @@ const About = () => {
     },
   ];
 
+
   return (
+    <>
+
+      <Navebar />
+
     <div className="about-wrap">
 
       <div className="about-header">
@@ -188,6 +195,8 @@ const About = () => {
       `}</style>
 
     </div>
+    <Footer />
+    </>
   );
 };
 

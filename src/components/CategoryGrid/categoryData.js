@@ -1,6 +1,6 @@
 // src/components/CategoryGrid/categoryData.js
 const categories = [
-  { id: 1,  name: "Offers",                  img: "https://media.bighaat.com/wsfbanners/ec9db2d0-d70c-41ae-abf0-83a286c1de05.webp?w=1080&q=80",             to: "/offers" },
+  { id: 1,  name: "Offers",                  img: "https://media.bighaat.com/wsfbanners/ec9db2d0-d70c-41ae-abf0-83a286c1de05.webp?w=1080&q=80",             to: "/category/offers-today" },
   { id: 2,  name: "Insecticides",            img: "https://media.bighaat.com/wsfbanners/f74bb722-23ff-4cfa-8a4f-09a817617c5f.webp?w=1080&q=80",       to: "/category/insecticides" },
   { id: 3,  name: "Nutrients",               img: "https://media.bighaat.com/wsfbanners/45e90225-8767-44f7-a3de-c1f5d186ae16.webp?w=1080&q=80",          to: "/category/nutrients" },
   { id: 4,  name: "Fungicides",              img: "https://media.bighaat.com/wsfbanners/97c1397e-0e1a-4c66-8d63-229a983de12b.webp?w=1080&q=80",         to: "/category/fungicides" },

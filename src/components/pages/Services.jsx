@@ -1,5 +1,7 @@
 import React from "react";
 
+import Navebar from "../../components/Navbar";
+import Footer from "../Footer/Footer";
 const Services = () => {
   const serviceData = [
     {
@@ -25,6 +27,9 @@ const Services = () => {
   ];
 
   return (
+    <>
+    
+    <Navebar /> 
     <div className="services-wrapper">
       <div className="services-container">
         {serviceData.map((item, index) => (
@@ -84,6 +89,8 @@ const Services = () => {
         }
       `}</style>
     </div>
+    <Footer />
+    </>
   );
 };
 

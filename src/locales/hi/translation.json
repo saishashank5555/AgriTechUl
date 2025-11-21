@@ -1,0 +1,37 @@
+{
+  "search_placeholder": "उत्पाद खोजें...",
+  "search_button": "खोजें",
+  "cart": "कार्ट",
+  "orders": "ऑर्डर",
+  "wishlist": "इच्छा सूची",
+  "notifications": "सूचनाएँ",
+  "view_all": "सभी देखें",
+  "profile": "मेरा प्रोफ़ाइल",
+  "my_orders": "मेरे ऑर्डर",
+  "my_cart": "मेरा कार्ट",
+  "logout": "लॉग आउट",
+  "track_order": "ऑर्डर ट्रैक करें",
+  "language": "भाषा",
+  "upload_avatar": "अवतार अपलोड करें",
+  "no_notifications": "कोई सूचनाएँ नहीं",
+  "mark_all_read": "सभी पढ़ा हुआ मार्क करें",
+  "simulated_notification": "नया प्रचार: कुछ चुनिंदा बीजों पर 15% छूट",
+  "welcome_back": "वापसी पर स्वागत है",
+  "login": "लॉगिन",
+  "email_login": "ईमेल लॉगिन",
+  "phone_login": "फोन लॉगिन",
+  "forgot_password": "पासवर्ड भूल गए?",
+  "signup": "साइन अप",
+
+
+  
+  "search_placeholder": "उत्पाद खोजें...",
+  "search_button": "खोजें",
+  "services": "सेवाएं",
+  "about_us": "हमारे बारे में",
+  "contact": "संपर्क करें",
+  "login": "लॉगिन",
+  "categories": "श्रेणियाँ"
+
+
+}

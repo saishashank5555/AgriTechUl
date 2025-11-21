@@ -42,7 +42,7 @@ const Footer = () => {
 
         <div className="link-col">
           <h5>Shop</h5>
-          <Link to="/category/seeds">Seeds</Link>
+          <Link to="/category/vegetable-seeds">Seeds</Link>
           <Link to="/category/fertilizers">Fertilizers</Link>
           <Link to="/category/farm-machinery">Farm Machinery</Link>
           <Link to="/offers-today">Today’s Offers</Link>

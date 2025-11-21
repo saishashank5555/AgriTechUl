@@ -22,3 +22,5 @@ for icons      -->  npm install react-icons
 for api call's -->  npm install axios
                     npm install react-lazy-load-image-component
                     npm i lucide-react
+                    npm install i18next react-i18next i18next-browser-languagedetector
+
