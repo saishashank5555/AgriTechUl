@@ -4,7 +4,7 @@ import seedsData from "./seedsData";
 import SeedCard from "./SeedCard";
 
 const VegetableSeedsPreview = () => {
-  const previewItems = seedsData.slice(0, 6); // show first 6 seeds
+  const previewItems = seedsData.slice(0, 12); // show first 6 seeds
 
   return (
     <div className="seed-preview-wrapper">
@@ -31,22 +31,22 @@ const VegetableSeedsPreview = () => {
         .seed-preview-wrapper {
           max-width: 1300px;
           margin: auto;
-          padding: 0 20px; /* Removed top padding */
+          padding: 0 20px;
         }
 
         .seed-header-row {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 6px; /* Reduced space */
-          margin-top:30px; /* Added top margin for spacing */
+          margin-bottom: 6px;
+          margin-top: 30px;
         }
 
         .seed-preview-title {
           font-size: 24px;
           font-weight: 700;
           color: #2a7a0e;
-          margin: 0; /* Remove default margin */
+          margin: 0;
         }
 
         .seed-more-btn {
@@ -68,18 +68,26 @@ const VegetableSeedsPreview = () => {
           overflow-x: auto;
           padding-bottom: 8px;
           scroll-behavior: smooth;
-          scrollbar-width: none; /* Hide scrollbar in Firefox */
+          scrollbar-width: none;
           margin-top: 0;
         }
 
-        .seed-scroll-row::-webkit-scrollbar { display: none; } /* Hide scrollbar in Chrome */
+        .seed-scroll-row::-webkit-scrollbar {
+          display: none;
+        }
 
+        /* CARD WIDTH MATCHING FERTILIZERS */
         .scroll-item {
           min-width: 180px;
+          max-width: 180px;
+          flex-shrink: 0;
         }
 
         @media(max-width: 600px) {
-          .scroll-item { min-width: 150px; }
+          .scroll-item {
+            min-width: 150px;
+            max-width: 150px;
+          }
         }
       `}</style>
     </div>

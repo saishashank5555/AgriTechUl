@@ -73,7 +73,7 @@ export default function CartPage() {
 
   return (
       <>
-       <UserNavbar/>
+       {/* <UserNavbar/> */}
     <div className="cart-wrapper">
       {/* INTERNAL CSS */}
       <style>{`

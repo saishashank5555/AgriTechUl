@@ -14,7 +14,7 @@ import Footer from '../../Footer/Footer'
 export default function Userdashboard() {
   return (
     <div>
-     <UserNavbar/>
+     {/* <UserNavbar/> */}
           <HeroBannerSlider />
           {/* Add other sections below */}
           <CategoryGrid />

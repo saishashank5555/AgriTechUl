@@ -17,7 +17,7 @@ const Contactus = () => {
 
   return (
     <>
-      <Navebar />
+      {/* <Navebar /> */}
     <div className="contact-wrapper">
 
       <h1 className="contact-title">Contact Us</h1>

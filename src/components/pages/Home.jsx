@@ -20,7 +20,7 @@ import Navbar from "../Navbar";
 const Home = () => {
   return (
     <div>
-      <Navbar></Navbar>
+      {/* <Navbar></Navbar> */}
       <HeroBannerSlider />
       {/* Add other sections below */}
       <CategoryGrid />

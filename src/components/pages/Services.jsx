@@ -29,7 +29,7 @@ const Services = () => {
   return (
     <>
     
-    <Navebar /> 
+    {/* <Navebar />  */}
     <div className="services-wrapper">
       <div className="services-container">
         {serviceData.map((item, index) => (

@@ -30,7 +30,7 @@ const Login = () => {
         sessionStorage.setItem("accessToken", data.accessToken);
         sessionStorage.setItem("refreshToken", data.refreshToken);
         sessionStorage.setItem("userEmail", username);
-
+        sessionStorage.setItem("auth", "true");
         alert("Login Successful!");
         navigate("/userdashboard");
         return;
@@ -51,10 +51,11 @@ const Login = () => {
     );
 
     if (foundUser) {
-      sessionStorage.setItem("accessToken", "offline-token");
-      sessionStorage.setItem("userEmail", foundUser.email);
-
+      // sessionStorage.setItem("accessToken", "offline-token");
+      // sessionStorage.setItem("userEmail", foundUser.email);
+      sessionStorage.setItem("auth", "true");
       alert("Offline Login Successful!");
+    
       navigate("/userdashboard");
     } else {
       setErrorMsg("Invalid username or password (offline login)");
@@ -65,8 +66,8 @@ const Login = () => {
 
   return (
     <>
-      {/* ⭐ Navbar */}
-      <Navbar />
+    
+      {/* <Navbar /> */}
 
       {/* Wrapper to prevent navbar overlap */}
       <div style={{ paddingTop: "120px" }}>

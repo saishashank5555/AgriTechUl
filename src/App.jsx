@@ -9,6 +9,9 @@ import Contactus from "./components/pages/Contactus";
 import Services from "./components/pages/Services";
 import About from "./components/pages/About";
 import Footer from "./components/Footer";
+import VegetableSeedsInfo from "./components/HeroBannerSlider/VegetableSeedsInfo.jsx";
+import FertilizersInfo from "./components/HeroBannerSlider/FertilizersInfo.jsx";
+import MachineryInfo from "./components/HeroBannerSlider/MachineryInfo.jsx";
 
 import VegetableSeedsPage from "./components/VegetableSeeds/VegetableSeedsPage";
 import SeedDetailsPage from "./components/VegetableSeeds/SeedDetailsPage";
@@ -39,9 +42,11 @@ import CartPage from "./components/Dashboard/UserDashboard/navbarmodules/UserCar
 import UserOrders from "./components/Dashboard/UserDashboard/navbarmodules/UserOrdersModules/UserOrders.jsx";
 import TrackOrder from "./components/Dashboard/UserDashboard/navbarmodules/UserOrdersModules/TrackOrder.jsx";
 import WishlistPage from "./components/Dashboard/UserDashboard/navbarmodules/WishlistModules/wishlistPage.jsx";
+import NavbarWrapper from "./components/NavbarWrapper.jsx";
 function App() {
   return (
     <>
+     <NavbarWrapper />
       {/* Normal Site Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -57,6 +62,9 @@ function App() {
         <Route path="/fertilizers/:id" element={<FertilizersPage />} />
         <Route path="/category/fertilizers" element={<Fertilizers />} />
         <Route path="/category/farm-machinery" element={<FarmMachineryPage />} />
+        <Route path="/HeroBannerSlider/vegetable-seeds-info" element={<VegetableSeedsInfo />} />
+        <Route path="/HeroBannerSlider/fertilizers-info" element={<FertilizersInfo />} />
+        <Route path="/HeroBannerSlider/machinery-info" element={<MachineryInfo />} />
 
        <Route path="/machinery/:id" element={<MachineryDetailsPage />} />
 

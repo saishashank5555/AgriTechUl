@@ -30,7 +30,7 @@ const About = () => {
   return (
     <>
 
-      <Navebar />
+      {/* <Navebar /> */}
 
     <div className="about-wrap">
 

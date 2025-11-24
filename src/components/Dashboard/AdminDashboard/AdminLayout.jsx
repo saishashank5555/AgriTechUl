@@ -8,6 +8,7 @@ export default function AdminLayout() {
 
   return (
     <div className="admin-layout">
+      {/* <AdminNavbar> </AdminNavbar> */}
       <header className="admin-navbar">
         <AdminNavbar setSidebarOpen={setSidebarOpen} />
       </header>

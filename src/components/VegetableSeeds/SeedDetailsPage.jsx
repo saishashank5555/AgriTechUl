@@ -76,7 +76,7 @@ export default function SeedDetailsPage() {
         <nav className="breadcrumb">
           <Link to="/">Home</Link>
           <span>›</span>
-          <Link to="/category/seeds">Seeds</Link>
+          <Link to="/category/vegetable-seeds">Seeds</Link>
           <span>›</span>
           <span className="current">{name}</span>
         </nav>
@@ -380,15 +380,8 @@ export default function SeedDetailsPage() {
               <h3>Related Products</h3>
               <div className="related-grid">
                 {related.map((p) => (
-                  <Link
-                    key={p.id}
-                    to={`/product/${p.id}`}
-                    className="related-item"
-                  >
-                    <img
-                      src={p.image || FALLBACK_IMAGE}
-                      alt={p.name}
-                    />
+                  <Link key={p.id} to={`/seeds/${p.id}`} className="related-item">
+                    <img src={p.image || FALLBACK_IMAGE} alt={p.name} />
                     <div className="r-name">{p.name}</div>
                     <div className="r-price">₹{p.price}</div>
                   </Link>

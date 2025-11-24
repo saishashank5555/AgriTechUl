@@ -43,7 +43,7 @@ export default function UserOrders() {
 
   return (
       <>
-       <UserNavbar/>
+       {/* <UserNavbar/> */}
     <div className="orders-wrapper">
 
       {/* INTERNAL CSS */}

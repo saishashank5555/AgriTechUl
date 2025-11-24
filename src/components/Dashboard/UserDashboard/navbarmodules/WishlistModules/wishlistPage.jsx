@@ -25,7 +25,7 @@ export default function WishlistPage() {
 
   return (
    <>
-   <UserNavbar/>
+   {/* <UserNavbar/> */}
     <div className="wishlist-wrapper">
 
       {/* INTERNAL CSS */}

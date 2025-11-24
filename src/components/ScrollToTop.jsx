@@ -1,40 +1,31 @@
 // src/components/ScrollToTop.jsx
-import { useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLayoutEffect } from "react";
+import { useLocation, useNavigationType } from "react-router-dom";
 
 /**
  * ScrollToTop
- * - Smoothly scrolls to top after every route change.
- * - Works across persistent layouts like MainLayout.
- * - Restores scroll if user presses "Back" in browser.
+ * - Only scrolls to top on client navigations (PUSH / REPLACE).
+ * - Does NOT override browser behavior on POP (back/forward) or page refresh;
+ *   this prevents unexpected jumps when user refreshes or uses browser controls.
  */
 export default function ScrollToTop() {
-  const { pathname, key } = useLocation();
-  const scrollPositions = useRef({});
+  const { pathname } = useLocation();
+  const navType = useNavigationType();
 
-  useEffect(() => {
-    // Restore previous scroll position if available (back navigation)
-    const prevPos = scrollPositions.current[key];
-    if (prevPos !== undefined) {
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: prevPos, behavior: "auto" });
-      });
-      return;
+  // Use layout effect to run synchronously before paint so the new page
+  // appears at the top immediately (no visible scroll animation).
+  useLayoutEffect(() => {
+    // If navigation is POP (back/forward or refresh), allow browser to restore position.
+    if (navType === "POP") return;
+
+    // For client navigations (PUSH/REPLACE) force immediate top-of-page.
+    // Use synchronous scroll to avoid a visible smooth animation from previous scroll position.
+    try {
+      window.scrollTo(0, 0);
+    } catch (e) {
+      // fallback: no-op
     }
-
-    // Otherwise, scroll to top after render
-    requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    // Save current scroll position on route leave
-    const handleBeforeUnload = () => {
-      scrollPositions.current[key] = window.scrollY;
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
-  }, [pathname, key]);
+  }, [pathname, navType]);
 
   return null;
 }
