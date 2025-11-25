@@ -233,54 +233,124 @@ export default function Navbar() {
         }
 
         /* LOGIN BUTTON */
-        .agri-login-btn {
-          padding: 8px 18px;
-          border: 1px solid var(--green);
-          border-radius: 6px;
-        }
-        .agri-login-btn:hover {
-          background: var(--green);
-          color: #fff;
-        }
+       /* LOGIN BUTTON */
+.agri-login-btn {
+  padding: 8px 18px;
+  border: 1px solid var(--green);
+  border-radius: 6px;
+  color: var(--green);     /* default text color */
+  background: transparent; /* default background */
+  transition: 0.3s ease;
+}
 
-        /* HAMBURGER */
-        .agri-hamburger {
-          display: none;
-          flex-direction: column;
-          gap: 5px;
-          background: none;
-          border: none;
-          cursor: pointer;
-        }
-        .agri-hamburger span {
-          width: 26px;
-          height: 3px;
-          background: var(--green);
-        }
+.agri-login-btn:hover,
+.agri-login-btn:active,
+.agri-login-btn:focus {
+  background: var(--green);
+  color: #fff !important;  /* white text on hover/click */
+}
 
-        /* MOBILE MENU */
-        @media (max-width: 800px) {
-          .agri-center { display: none; }
-          .agri-links {
-            display: none;
-            flex-direction: column;
-            width: 100%;
-            padding: 20px;
-            background: #fff;
-            border-top: 1px solid var(--border);
-          }
-          .agri-links.open { display: flex; }
 
-          .agri-dropdown {
-            position: static;
-            width: 100%;
-            box-shadow: none;
-            border: none;
-            padding-left: 20px;
-          }
+      /* HAMBURGER */
+.agri-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.agri-hamburger span {
+  width: 26px;
+  height: 3px;
+  background: var(--green);
+}
 
-          .agri-hamburger { display: flex; }
-        }
+/* MOBILE MENU — WORKS FOR ALL DEVICES */
+@media (max-width: 1024px) {
+
+  /* hide normal navbar links */
+  .agri-center,
+  .agri-links-desktop {
+    display: none;
+  }
+
+  /* mobile dropdown */
+  .agri-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px 20px;
+    background: #fff;
+    border-radius: 10px;
+
+    position: fixed;      
+    top: 70px;            
+    right: 18px;          
+    width: 220px;
+    z-index: 2000;
+
+    border: 1px solid #e5e5e5;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.12);
+  }
+
+  .agri-links.open {
+    display: flex;
+  }
+
+  .agri-hamburger {
+    display: flex;
+  }
+
+  .agri-dropdown {
+    position: static;
+    padding-left: 10px;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+/* EXTRA RESPONSIVENESS FOR SMALLER DEVICES */
+@media (max-width: 768px) {
+  .agri-links {
+    width: 150px;
+    top: 74px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .agri-links {
+    width: 150px;
+    top: 74px;
+    right: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .agri-links {
+    width: 150px;
+    top: 74px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .agri-links {
+    width: 150px;
+    top: 74px;
+    right: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .agri-links {
+    width: 150px;
+    top: 74px;
+    right: 8px;
+  }
+}
+
 
         /* ANIMATION */
         @keyframes fadeIn {

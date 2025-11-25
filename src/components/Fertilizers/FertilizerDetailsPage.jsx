@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import fertilizersData from "./fertilizersData";
+import { requireAuth, isLoggedIn } from "../../utils/auth";
+import { useNavigate } from "react-router-dom"; 
 
 /**
  * FertilizerDetailsPage.jsx
@@ -34,9 +36,12 @@ import fertilizersData from "./fertilizersData";
 export default function FertilizerDetailsPage() {
   const { id } = useParams();
   const fert = fertilizersData.find((f) => String(f.id) === String(id));
+  const navigate = useNavigate();
 
   // local fallback image (uploaded earlier)
-  const FALLBACK_IMAGE = "/mnt/data/c61b8eae-dfc2-4cca-a1e0-c301228d07ef.png";
+  const FALLBACK_IMAGE = "/mnt/data/c61b8eae-dfc2-4cca-a1e0-c301228d07ef.png"; 
+
+// duplicate navigate removed
 
   if (!fert) {
     return (
@@ -91,11 +96,21 @@ export default function FertilizerDetailsPage() {
   }
 
   function addToCart() {
+    const dest = `/fertilizers/${id}`;
+    if (!requireAuth(navigate, dest)) return;
     alert(`Added ${name} (${selectedSize}) to cart`);
   }
+
   function buyNow() {
-    alert(`Proceeding to buy ${name} (${selectedSize})`);
+    const dest = `/fertilizers/${id}`;
+    const buyItem = { id, name, price, mrp, image };
+    localStorage.setItem("buyNowItem", JSON.stringify(buyItem));
+    sessionStorage.setItem("redirectToBuyNow", "true");
+    if (!requireAuth(navigate, dest)) return;
+    navigate("/buy-now");
   }
+
+
 
   return (
     <div className="fert-page-root">
@@ -422,7 +437,7 @@ export default function FertilizerDetailsPage() {
 
         .sticky { position:fixed; bottom:0; left:0; right:0; background:white; border-top:1px solid var(--border); z-index:1000; }
         .sticky-inner { max-width:1200px; margin:auto; display:flex; justify-content:space-between; padding:10px 20px; align-items:center; }
-        .sticky-cart, .sticky-buy { padding:10px 14px; border-radius:8px; cursor:pointer; border:none; font-weight:700; }
+        .sticky-cart, .sticky-buy { padding:10px 14px; border-radius:8px; cursor:pointer; border:none; font-weight:700; margin-left:10px; }
         .sticky-cart { border:1px solid var(--green); background:#f4fff4; color:var(--green); }
         .sticky-buy { background:var(--green); color:white; }
 

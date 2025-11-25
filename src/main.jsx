@@ -10,13 +10,16 @@ import i18n from "./i18n";
 
 // ⭐ Wrap App with I18nextProvider
 import { I18nextProvider } from "react-i18next";
+import { BuyNowProvider } from "./components/BuyNow/BuyNowContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <I18nextProvider i18n={i18n}>
       <BrowserRouter basename="/AgriTechUl/">
         <ScrollToTop />
+        <BuyNowProvider>
         <App />
+         </BuyNowProvider>
       </BrowserRouter>
     </I18nextProvider>
   </StrictMode>

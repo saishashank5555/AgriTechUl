@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
+import { requireAuth } from "../../utils/auth";
 import machineryData from "./machineryData";
+import { useNavigate } from "react-router-dom";
 
 /**
  * MachineryDetailsPage.jsx
@@ -14,9 +16,10 @@ import machineryData from "./machineryData";
 export default function MachineryDetailsPage() {
   const { id } = useParams();
   const machine = machineryData.find((m) => String(m.id) === String(id));
-
+const navigate = useNavigate();
   const FALLBACK_IMAGE =
     "/mnt/data/c61b8eae-dfc2-4cca-a1e0-c301228d07ef.png";
+
 
   if (!machine)
     return (
@@ -69,13 +72,24 @@ export default function MachineryDetailsPage() {
     );
   }
 
-  function addToCart() {
-    alert(`Added ${name} to cart`);
+    function addToCart() {
+      const dest = `/machinery/${id}`;
+      if (!requireAuth(navigate, dest)) return;
+      alert(`Added ${name} to cart`);
+    }
+
+  
+  function buyNow() {
+    const dest = `/machinery/${id}`;
+    const buyItem = { id, name, price, mrp, image };
+    localStorage.setItem("buyNowItem", JSON.stringify(buyItem));
+    sessionStorage.setItem("redirectToBuyNow", "true");
+    if (!requireAuth(navigate, dest)) return;
+    navigate("/buy-now");
   }
 
-  function buyNow() {
-    alert(`Proceeding to buy ${name}`);
-  }
+
+
 
   return (
     <div className="mach-page-root">
@@ -497,7 +511,7 @@ export default function MachineryDetailsPage() {
           padding:10px 20px;align-items:center;
         }
         .sticky-cart, .sticky-buy {
-          padding:10px 14px;border:none;border-radius:8px;font-weight:700;cursor:pointer;
+          padding:10px 14px;border:none;border-radius:8px;font-weight:700;cursor:pointer; margin-left:10px;
         }
         .sticky-cart { background:#eaffea;color:var(--green);border:1px solid var(--green); }
         .sticky-buy { background:var(--green);color:white; }

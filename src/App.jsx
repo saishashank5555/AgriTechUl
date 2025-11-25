@@ -43,6 +43,9 @@ import UserOrders from "./components/Dashboard/UserDashboard/navbarmodules/UserO
 import TrackOrder from "./components/Dashboard/UserDashboard/navbarmodules/UserOrdersModules/TrackOrder.jsx";
 import WishlistPage from "./components/Dashboard/UserDashboard/navbarmodules/WishlistModules/wishlistPage.jsx";
 import NavbarWrapper from "./components/NavbarWrapper.jsx";
+import BuyNowPage from "./components/BuyNow/BuyNowPage.jsx";
+import PaymentPage from "./components/BuyNow/PaymentPage.jsx";
+import OrderSuccessPage from "./components/BuyNow/OrderSuccessPage.jsx";
 function App() {
   return (
     <>
@@ -146,7 +149,12 @@ function App() {
          <Route path="/wishlist" element={<WishlistPage/>} />  
 
 
-      
+       
+  <Route path="/buy-now" element={<BuyNowPage />} />
+  <Route path="/payment" element={<PaymentPage />} />
+  <Route path="/order-success" element={<OrderSuccessPage />} />
+
+
 
 
 

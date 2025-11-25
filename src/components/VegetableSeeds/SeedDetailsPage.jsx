@@ -1,14 +1,19 @@
 import React, { useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
+import { requireAuth } from "../../utils/auth";
 import seedsData from "./seedsData";
+import { useNavigate } from "react-router-dom";
 
 export default function SeedDetailsPage() {
   const { id } = useParams();
   const seed = seedsData.find((s) => String(s.id) === String(id));
-
+// const { setBuyItem } = useBuyNow();
+const navigate = useNavigate();
   // fallback to uploaded image
   const FALLBACK_IMAGE =
     "/mnt/data/c61b8eae-dfc2-4cca-a1e0-c301228d07ef.png";
+
+
 
   if (!seed)
     return (
@@ -62,12 +67,24 @@ export default function SeedDetailsPage() {
     );
   }
 
-  function addToCart() {
-    alert(`Added ${name} (${selectedSize}) to cart`);
-  }
+    function addToCart() {
+      const dest = `/seeds/${id}`;
+      if (!requireAuth(navigate, dest)) return;
+      alert(`Added ${name} (${selectedSize}) to cart`);
+    }
+
   function buyNow() {
-    alert(`Proceeding to buy ${name} (${selectedSize})`);
+    const dest = `/seeds/${id}`;
+    // store buy item first so it's available after login
+    const buyItem = { id, name, price, mrp, image };
+    localStorage.setItem("buyNowItem", JSON.stringify(buyItem));
+    sessionStorage.setItem("redirectToBuyNow", "true");
+    if (!requireAuth(navigate, dest)) return;
+    navigate("/buy-now");
   }
+
+
+
 
   return (
     <div className="product-page-root">
@@ -696,11 +713,12 @@ export default function SeedDetailsPage() {
         }
         .sticky-cart,
         .sticky-buy {
-          padding: 10px 14px;
+          padding: 10px 20px;
           border-radius: 8px;
           cursor: pointer;
           border: none;
           font-weight: 700;
+          margin-left: 10px;
         }
         .sticky-cart {
           border: 1px solid var(--green);
